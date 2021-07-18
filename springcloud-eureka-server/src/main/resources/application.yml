@@ -1,0 +1,21 @@
+#server:
+#  port: 8700
+
+#指定当前eureka客户端的注册地址，也就是eureka服务的提供方，当前配置的服务的注册服务方
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 30
+  client:
+    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+       defaultZone: http://localhost:8699/eureka,http://localhost:8698/eureka #peer多注册中心，配置虚拟机 -Dserver.port=8697
+    register-with-eureka: false
+    fetch-registry: false
+#  instance:
+#    hostname: localhost
+
+#指定应用名称
+spring:
+  application:
+    name: eureka-server
+
